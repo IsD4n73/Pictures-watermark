@@ -39,7 +39,7 @@ def get_position(image_width, image_height, text_width, text_height, position_id
 
 
 # watermark
-def add_watermark(filename, text, font_name='Roboto-Italic.ttf', font_size=20, font_opacity=50, position_id=9):
+def add_watermark(filename, text, font_name='Roboto-Regular.ttf', font_size=20, font_opacity=50, position_id=9):
     '''
     Add watermark function
     :param filename: origin image filename
@@ -92,9 +92,11 @@ if __name__ == '__main__':
 
     position_id = int(input('[#] Inserisci la posizione: [def:9] ') or '9')
 
-    for f in os.listdir('image'):
-        if f.endswith('.png'):
-             filename = 'images/{}'.format(f)
+    for f in os.listdir('./image'):
+        if f.endswith('.png') or f.endswith('.jpg'):
+             filename = './image/{}'.format(f)
              print('\nWatermark aggiunto a {}'.format(filename))
              add_watermark(filename=filename, text=text, font_size=font_size, font_opacity=font_opacity,
                           position_id=position_id)
+
+    input("Clicca un tasto per chiudere il programma...")
