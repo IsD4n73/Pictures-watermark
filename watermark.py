@@ -71,10 +71,12 @@ def add_watermark(filename, text, font_name='Roboto-Italic.ttf', font_size=20, f
 
 # main
 if __name__ == '__main__':
-    text = input('[#] Inserisci il watermark: ').strip()
+    text = input('[#] Inserisci il watermark: ').strip() # get text for watermark
+
     font_size = int(input('[#] Inserisci la grandezza del font: [def:20] ') or '20')
     font_opacity = int(input('[#] Inserisci l\'opacità: [def:50] ') or '50')
 
+    # print position type
     print(''' 
     
     1: top left 
@@ -89,3 +91,10 @@ if __name__ == '__main__':
     ''')
 
     position_id = int(input('[#] Inserisci la posizione: [def:9] ') or '9')
+
+    for f in os.listdir('image'):
+        if f.endswith('.png'):
+             filename = 'images/{}'.format(f)
+             print('\nWatermark aggiunto a {}'.format(filename))
+             add_watermark(filename=filename, text=text, font_size=font_size, font_opacity=font_opacity,
+                          position_id=position_id)
