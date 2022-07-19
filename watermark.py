@@ -93,7 +93,7 @@ if __name__ == '__main__':
     position_id = int(input('[#] Inserisci la posizione: [def:9] ') or '9')
 
     for f in os.listdir('./image'):
-        if f.endswith('.png') or f.endswith('.jpg'):
+        if f.endswith('.png'):
              filename = './image/{}'.format(f)
              print('\nWatermark aggiunto a {}'.format(filename))
              add_watermark(filename=filename, text=text, font_size=font_size, font_opacity=font_opacity,
